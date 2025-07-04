@@ -57,6 +57,15 @@ function logout() {
 }
 
 function checkAuth() {
+  const navEntries = performance.getEntriesByType('navigation');
+  const reloaded = navEntries.length
+    ? navEntries[0].type === 'reload'
+    : performance.navigation && performance.navigation.type === 1;
+  if (reloaded) {
+    logout();
+    return false;
+  }
+
   const logado = sessionStorage.getItem('logadoCamargo') === 'sim';
   const loginTime = parseInt(sessionStorage.getItem('loginTimeCamargo'), 10);
 
