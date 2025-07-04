@@ -35,6 +35,8 @@
   </style>
 </head>
 <body>
+  <script src="auth.js"></script>
+  <script>checkAuth();</script>
 
   <div class="box">
     <h2>Trocar Senha</h2>
@@ -52,9 +54,8 @@
         return;
       }
 
-      // Salva nova senha no localStorage
-      localStorage.setItem(`senha_${usuario}`, novaSenha);
-      localStorage.setItem(`senhaTrocada_${usuario}`, "sim");
+      // Exemplo de salvamento apenas em memória da sessão
+      sessionStorage.setItem(`senha_${usuario}`, novaSenha);
       alert("Senha alterada com sucesso!");
       window.location.href = "index.html";
     }
