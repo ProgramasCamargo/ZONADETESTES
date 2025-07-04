@@ -16,11 +16,30 @@
     #simularBtn { margin: 20px auto; display: block; padding: 10px 20px; background-color: #3498db; color: white; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; }
     #erroMensagem { color: red; text-align: center; margin-top: 10px; font-weight: bold; }
     #resultado h2 { margin-top: 30px; }
+
+    .back-index {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background-color: #2617ff;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      z-index: 1000;
+    }
+
+    .back-index:hover {
+      background-color: #180fd4;
+    }
   </style>
 </head>
 <body>
   <script src="auth.js"></script>
   <script>checkAuth();</script>
+
+  <a href="index.html" class="back-index">Voltar ao Início</a>
   <h2>Ficha de Atendimento ao Cliente</h2>
   <label>Quantos clientes?
     <input type="number" id="qtdClientes" min="1" max="10" value="1" onchange="gerarTabela()">
