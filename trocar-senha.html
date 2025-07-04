@@ -32,11 +32,30 @@
       border-radius: 6px;
       cursor: pointer;
     }
+
+    .back-index {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background-color: #2617ff;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      z-index: 1000;
+    }
+
+    .back-index:hover {
+      background: #180fd4;
+    }
   </style>
 </head>
 <body>
   <script src="auth.js"></script>
   <script>checkAuth();</script>
+
+  <a href="index.html" class="back-index">Voltar ao Início</a>
 
   <div class="box">
     <h2>Trocar Senha</h2>

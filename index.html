@@ -70,11 +70,30 @@
     .logout:hover {
       background-color: #cc0000;
     }
+
+    .back-index {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background-color: #2617ff;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+      z-index: 1000;
+    }
+
+    .back-index:hover {
+      background-color: #180fd4;
+    }
   </style>
 </head>
 <body>
   <script src="auth.js"></script>
   <script>checkAuth();</script>
+
+  <a href="index.html" class="back-index">Voltar ao Início</a>
 
   <div class="painel-box">
     <h2>Bem-vindo(a), <span id="nomeUsuario"></span> 👋</h2>

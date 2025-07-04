@@ -21,11 +21,28 @@
   input[type=number].hide-arrows::-webkit-inner-spin-button,
   input[type=number].hide-arrows::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
   input[type=number].hide-arrows{-moz-appearance:textfield}
+
+  .back-index {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background-color: #2617ff;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    z-index: 1000;
+  }
+
+  .back-index:hover {background-color:#180fd4}
 </style>
 </head>
 <body class="bg-light">
 <script src="auth.js"></script>
 <script>checkAuth();</script>
+
+<a href="index.html" class="back-index">Voltar ao Início</a>
 
 <div class="container my-4">
   <h1 class="mb-3 text-center fw-bold">Imobiliária Camargo – Gerador de Protocolo de Contrato</h1>
