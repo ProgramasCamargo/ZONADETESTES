@@ -37,7 +37,9 @@ function login() {
   const senhaInput = document.getElementById('senha').value.trim();
   const erro = document.getElementById('erro');
 
-  if (usuariosLower[usuarioInput] && usuariosLower[usuarioInput] === senhaInput) {
+  const senhaSalva = localStorage.getItem(`senha_${usuarioInput}`) || usuariosLower[usuarioInput];
+
+  if (senhaSalva && senhaSalva === senhaInput) {
     sessionStorage.setItem('logadoCamargo', 'sim');
     sessionStorage.setItem('usuarioCamargo', usuarioInput.charAt(0).toUpperCase() + usuarioInput.slice(1));
     window.location.href = 'index.html';

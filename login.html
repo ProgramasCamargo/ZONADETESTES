@@ -114,8 +114,9 @@
       const erro = document.getElementById('erro');
 
       const usuarioFormatado = removeAcentos(usuarioInput.toLowerCase());
+      const senhaSalva = localStorage.getItem(`senha_${usuarioFormatado}`) || usuarios[usuarioFormatado];
 
-      if (usuarios[usuarioFormatado] && usuarios[usuarioFormatado] === senhaInput) {
+      if (senhaSalva && senhaInput === senhaSalva) {
         sessionStorage.setItem('logadoCamargo', 'sim');
         sessionStorage.setItem('usuarioCamargo', usuarioFormatado);
         window.location.href = 'index.html';
