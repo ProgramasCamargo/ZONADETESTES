@@ -16,30 +16,9 @@
     #simularBtn { margin: 20px auto; display: block; padding: 10px 20px; background-color: #3498db; color: white; font-size: 16px; border: none; border-radius: 4px; cursor: pointer; }
     #erroMensagem { color: red; text-align: center; margin-top: 10px; font-weight: bold; }
     #resultado h2 { margin-top: 30px; }
-
-    .back-index {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      background-color: #2617ff;
-      color: white;
-      padding: 6px 12px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 14px;
-      z-index: 1000;
-    }
-
-    .back-index:hover {
-      background-color: #180fd4;
-    }
   </style>
 </head>
 <body>
-  <script src="auth.js"></script>
-  <script>checkAuth();</script>
-
-  <a href="index.html" class="back-index">Voltar ao Início</a>
   <h2>Ficha de Atendimento ao Cliente</h2>
   <label>Quantos clientes?
     <input type="number" id="qtdClientes" min="1" max="10" value="1" onchange="gerarTabela()">
@@ -56,11 +35,20 @@
   }
   function determinarTaxaJuros(renda, valorImovel) {
     // Faixa 2: até R$ 245.000
-    if (renda <= 4700 && valorImovel <= 245000) return renda <= 3500 ? 5.5 : 6.5;
+    if (valorImovel <= 245000) {
+      if (renda <= 3500) return 5.12;
+      if (renda <= 4000) return 5.64;
+      if (renda <= 4700) return 6.70;
+    }
+
     // Faixa 3: até R$ 350.000
-    if (renda <= 8600 && valorImovel <= 350000) return 7.66;
-    // Faixa 4: acima de R$ 350.000
-    return 10.0;
+    if (renda <= 8000 && valorImovel <= 350000) return 7.93;
+
+    // Faixa 4: até R$ 500.000
+    if (renda <= 11000 && valorImovel <= 500000) return 10.47;
+
+    // Acima do MCMV
+    return 12.00;
   }
   function gerarTabela() {
     const qtd = parseInt(document.getElementById('qtdClientes').value) || 1;
