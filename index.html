@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bem-vindo - Ferramentas Camargo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('1.png') no-repeat center center fixed;
+      background-size: cover;
+      background-color: #2617ff;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .painel-box {
+      background-color: rgba(255, 255, 255, 0.92);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+      width: 340px;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #2617ff;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .botao {
+      padding: 12px;
+      font-size: 16px;
+      color: #fff;
+      background-color: #2617ff;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .botao:hover {
+      background-color: #180fd4;
+    }
+
+    .logout {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 20px;
+      background-color: #ff4444;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease;
+    }
+
+    .logout:hover {
+      background-color: #cc0000;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Proteção: redireciona se não estiver logado -->
+  <script>
+    if (sessionStorage.getItem("logadoCamargo") !== "sim") {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <div class="painel-box">
+    <h2>Bem-vindo(a), <span id="nomeUsuario"></span> 👋</h2>
+
+    <div class="button-container">
+      <a class="botao" href="protocolo.html" target="_blank">Protocolo de Contrato</a>
+      <a class="botao" href="simulador.html" target="_blank">Simulador de Custo</a>
+      <a class="botao" href="Teste 02.html" target="_blank">Em Breve</a>
+      <a class="botao" href="https://docs.google.com/spreadsheets/d/1J8HUaIJG-ghcuSSTZtm21xebX6OzdlQg/edit?usp=sharing&ouid=111477046045871229131&rtpof=true&sd=true" target="_blank">Roleta Gerencial</a>
+      <a class="botao" href="fichaatendimento.html" target="_blank">Teste 01</a>
+    </div>
+  </div>
+
+  <button class="logout" onclick="logout()">Sair</button>
+
+  <script>
+    // Capitaliza primeira letra do nome
+    function capitalizar(str) {
+      if (!str) return "";
+      return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    }
+
+    const nome = sessionStorage.getItem("usuarioCamargo");
+    document.getElementById("nomeUsuario").textContent = capitalizar(nome);
+
+    function logout() {
+      sessionStorage.clear();
+      location.href = "login.html";
+    }
+  </script>
+
+</body>
+</html>
