@@ -73,13 +73,8 @@
   </style>
 </head>
 <body>
-
-  <!-- Proteção: redireciona se não estiver logado -->
-  <script>
-    if (sessionStorage.getItem("logadoCamargo") !== "sim") {
-      window.location.href = "login.html";
-    }
-  </script>
+  <script src="auth.js"></script>
+  <script>checkAuth();</script>
 
   <div class="painel-box">
     <h2>Bem-vindo(a), <span id="nomeUsuario"></span> 👋</h2>
@@ -104,11 +99,6 @@
 
     const nome = sessionStorage.getItem("usuarioCamargo");
     document.getElementById("nomeUsuario").textContent = capitalizar(nome);
-
-    function logout() {
-      sessionStorage.clear();
-      location.href = "login.html";
-    }
   </script>
 
 </body>
